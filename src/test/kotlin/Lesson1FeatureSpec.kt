@@ -77,8 +77,8 @@ class BasicsFeatureSpec : FeatureSpec({
     }
 
     feature("collections") {
-        val fruits = arrayListOf("Apple", "Orange", "Grapes", "Cherry")
-
+        fruits("Apple", "Orange", "Grapes", "Cherry")
+        println(fruits)
         scenario("") {
             fruits.count() shouldBe 4
             fruits shouldContain "Apple"
@@ -127,4 +127,10 @@ fun count(list: ArrayList<String>): Int {
         counter += 1
     }
     return counter
+}
+fun fruits(list: ArrayList<String>): Any{
+    val mp = mapOf(String, Int)
+    for (i in list)
+        mp[i]++
+    return mp
 }
